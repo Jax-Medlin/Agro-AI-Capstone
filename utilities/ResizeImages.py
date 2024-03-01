@@ -1,4 +1,6 @@
-from PIL import Image
+import PIL.Image
+if not hasattr(PIL.Image, 'Resampling'):  # Pillow<9.0
+    PIL.Image.Resampling = PIL.Image
 import os
 
 def resize_images(folder_path, output_folder, processed_list_path, max_count=50, size=(1024, 768)):
@@ -17,8 +19,8 @@ def resize_images(folder_path, output_folder, processed_list_path, max_count=50,
     for filename in os.listdir(folder_path):
         if filename.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp', '.gif')) and filename not in processed:
             img_path = os.path.join(folder_path, filename)
-            img = Image.open(img_path)
-            img_resized = img.resize(size, Image.Resampling.LANCZOS)
+            img = PIL.Image.open(img_path)
+            img_resized = img.resize(size, PIL.Image.Resampling.LANCZOS)
 
             output_path = os.path.join(output_folder, filename)
             img_resized.save(output_path)
@@ -35,9 +37,10 @@ def resize_images(folder_path, output_folder, processed_list_path, max_count=50,
     return processed_count
 
 # Usage
-folder_path = 'path/to/our/images'
-output_folder = 'path/to/our/resized/images'
-processed_list_path = 'path/to/processed_list.txt'  # Set this to keep track of what images we've already processed!
-max_count = 50  # Number of images to process in one run
+# output paths will follow this format:
+folder_path = '/work/hsiycsci4970/pstruthers/images_handheld'
+output_folder = '/work/hsiycsci4970/pstruthers/handheld_output'
+processed_list_path = '/work/hsiycsci4970/pstruthers/handheld.txt'  # Set this to keep track of what images we've already processed!
+max_count = 100  # Number of images to process in one run
 
 processed = resize_images(folder_path, output_folder, processed_list_path, max_count)
