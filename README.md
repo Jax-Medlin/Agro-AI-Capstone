@@ -10,4 +10,4 @@ Code Milestone 2:
 A python script called AI.py was created under the model_training folder to train the AI model using EfficientNet. The training is being done on the HCC server. The model uses binary classification to divide the images into either healthy or unhealthy.
 
 Code Milestone 3:
-The home page of the application has been updated and finalized to reflect login functionality. A MySQL database has been set up and includes a Users table to store user login information. Additionally, the process of setting up an Ubuntu server on VMWare has also been started, but technical issues are still being worked out.
+requirements.txt was updated with newer/compatible versions of necessary packages. The home page of the application has been updated and finalized to reflect login functionality. A MySQL database has been set up and includes a Users table to store user login information. Additionally, the process of setting up an Ubuntu server on VMWare has also been started, but technical issues are still being worked out.
