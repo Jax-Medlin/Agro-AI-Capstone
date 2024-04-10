@@ -4,6 +4,22 @@ if not hasattr(PIL.Image, 'Resampling'):  # Pillow<9.0
 import os
 
 def resize_images(folder_path, output_folder, processed_list_path, max_count=50, size=(1024, 768)):
+    """
+    Resize images in the specified folder to a given size and save them to the output folder.
+
+    Args:
+        folder_path (str): The path to the folder containing the original images.
+        output_folder (str): The path to the folder where the resized images will be saved.
+        processed_list_path (str): The path to the file keeping track of already processed images.
+        max_count (int, optional): Maximum number of images to process in one run. Default value is 50.
+        size (tuple, optional): The target size of the resized images. Default value is (1024, 768).
+
+    Returns:
+        int: The number of images processed in this run.
+
+    Raises:
+        OSError: If unable to create the output folder.
+    """
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
 

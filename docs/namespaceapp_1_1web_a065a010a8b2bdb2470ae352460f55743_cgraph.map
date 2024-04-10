@@ -1,0 +1,9 @@
+<map id="app.web.getNextSetOfImages" name="app.web.getNextSetOfImages">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,56,199,83"/>
+<area shape="rect" id="Node000002" href="$namespaceapp_1_1web.html#a8d5f3afc0153f3839cbaeb2db81589b9" title=" " alt="" coords="247,5,409,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,53,250,33,251,39,165,58"/>
+<area shape="rect" id="Node000003" href="$namespaceapp_1_1web.html#a199f6c9e2cc0c03d395012d1726d1668" title=" " alt="" coords="269,56,387,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="199,67,253,67,253,72,199,72"/>
+<area shape="rect" id="Node000004" href="$namespaceapp_1_1web.html#a963fca4a6beae20493d5d9214bddec34" title=" " alt="" coords="258,107,398,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="165,81,251,100,250,105,164,86"/>
+</map>
