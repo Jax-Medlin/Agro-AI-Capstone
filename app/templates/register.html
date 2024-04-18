@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/index_format.css') }} ">
+<link rel="stylesheet" type="text/css" href="../static/styles/styles.css">
+<body>
+    <div class="container-fluid">
+        <div class="row justify-content-center align-items-center" style="height: 100vh;">
+            <div class="col-md-6 text-center border-custom">
+                <h1 class="start-heading mb-4">Account Registration</h1><br>
+                <form action="/register.html" method="post" onsubmit="return validateForm()">
+                    <div class="form-group">
+                        <input type="text" id="username" class="form-control smaller-width" placeholder="Username" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="password" class="form-control smaller-width" placeholder="Password" required>
+                    </div><br>
+                    <button type="submit" class="btn btn-lg btn-primary btn-start font-weight-bold btn-center">Register</button>
+                </form><br>
+            </div>
+        </div>
+    </div>
+    <script>
+        function validateForm() {
+            var username = document.getElementById('username').value;
+            if (!/^[a-zA-Z0-9]{4,16}$/.test(username)) {
+                alert('Username must be 4-16 characters long and can only contain letters and numbers');
+                return false;
+            }
+            var password = document.getElementById('password').value;
+            if (password.length < 8 || password.length > 16) {
+                alert('Password must be 8-16 characters long');
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
+{% endblock %}

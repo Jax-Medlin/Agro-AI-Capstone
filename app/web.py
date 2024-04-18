@@ -180,6 +180,26 @@ def home():
     session.pop('model', None)
     return render_template('index.html')
 
+@app.route("/login.html", methods=['GET', 'POST'])
+def login():
+    """
+    Operates the login(login.html) web page.
+    """
+    if request.method == 'POST':
+        return redirect(url_for('label'))
+    
+    return render_template('login.html')
+
+@app.route("/register.html", methods=['GET', 'POST'])
+def register():
+    """
+    Operates the register(register.html) web page.
+    """
+    if request.method == 'POST':
+        return redirect(url_for('label.html'))
+    
+    return render_template('register.html')
+
 @app.route("/label.html",methods=['GET', 'POST'])
 def label():
     """

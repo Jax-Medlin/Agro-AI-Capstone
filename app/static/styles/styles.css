@@ -6,3 +6,22 @@
     display: block;
     text-align: center;
 }
+
+.smaller-width {
+    width: 300px;
+    margin: auto;
+}
+
+.btn-center {
+    display: block;
+    margin: auto;
+}
+
+.border-custom {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
