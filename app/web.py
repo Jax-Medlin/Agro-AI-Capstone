@@ -250,7 +250,7 @@ def login():
             cursor = connection.cursor()
             try:
                 # Hash the password for comparison
-                print("UNHASHED:",password)
+                print("UNHASHED:", password)
                 hash_password = hashlib.sha1(password.encode()).hexdigest()
                 print("Hashed Password:", hash_password)  # Debug print
 
@@ -262,8 +262,8 @@ def login():
                 if account:
                     # Set session variables
                     session['loggedin'] = True
-                    session['id'] = account['id']
-                    session['username'] = account['username']
+                    session['id'] = account[0]  # Assuming user ID is the first element in the tuple
+                    session['username'] = account[1]  # Assuming username is the second element in the tuple
                     cursor.close()
                     connection.close()
                     print("Redirecting to label.html...")  # Debug print
