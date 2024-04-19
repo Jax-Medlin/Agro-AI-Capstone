@@ -266,7 +266,10 @@ def login():
                     session['id'] = account[0]  # Assuming user ID is the first element in the tuple
                     session['username'] = account[1]  # Assuming username is the second element in the tuple
                     cursor.close()
-                    connection.close()
+                    try:
+                        connection.close()
+                    except Exception as close_error:
+                        print(f'Error closing connection: {close_error}')  # Debug print
                     print("Redirecting to label.html...")  # Debug print
                     return redirect(url_for('label'))  # Redirect to label.html or appropriate route
                 else:
@@ -280,9 +283,8 @@ def login():
                 print(f'Error: {e}')  # Debug print
                 return f'Error: {e}'
             finally:
-                # Close the cursor and connection
+                # Close the cursor
                 cursor.close()
-                connection.close()
 
     return render_template('login.html')
 
