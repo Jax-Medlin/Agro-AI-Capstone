@@ -8,8 +8,10 @@ app = Flask(__name__)
 app.config.from_object(Config)
 mysql = MySQL(app)
 
-print("MySQL object initialized:", mysql)
-print("MySQL connection:", mysql.connection)
-
+try:
+    connection = mysql.connect()
+    print("MySQL connection:", connection)
+except Exception as e:
+    print("Error connecting to MySQL:", e)
 
 from app import web
