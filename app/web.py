@@ -24,16 +24,6 @@ from app.db import get_mysql_connection
 
 bootstrap = Bootstrap(app)
 
-def login_required(func):
-    def wrapper(*args, **kwargs):
-        # Check if user is logged in
-        if 'loggedin' in session:
-            return func(*args, **kwargs)
-        else:
-            # Redirect to login page if not logged in
-            return redirect('/login.html')
-    return wrapper
-
 
 def getData():
     """
@@ -217,7 +207,11 @@ def label():
         session['labels'].append(form.choice.data)
         return renderLabel(form)
     
-    return render_template('label.html', form = form)
+    if 'loggedin' in session:
+        # User is loggedin show them the home page
+        return render_template('label.html', form = form)
+    # User is not loggedin redirect to login page
+    return redirect('/login.html')
 
 @app.route("/intermediate.html",methods=['GET'])
 def intermediate():
