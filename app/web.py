@@ -216,10 +216,8 @@ def label():
     elif form.is_submitted() and session['queue'] != []: #Still gathering labels
         session['labels'].append(form.choice.data)
         return renderLabel(form)
-    if 'loggedin' in session:
-        return render_template('label.html', form = form, username=session['username'])
-    else:
-        return redirect('login.html')
+    
+    return render_template('label.html', form = form)
 
 @app.route("/intermediate.html",methods=['GET'])
 def intermediate():
