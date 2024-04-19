@@ -250,6 +250,7 @@ def login():
             cursor = connection.cursor()
             try:
                 # Hash the password for comparison
+                print("UNHASHED:",password)
                 hash_password = hashlib.sha1(password.encode()).hexdigest()
                 print("Hashed Password:", hash_password)  # Debug print
 
@@ -301,6 +302,7 @@ def register():
             if account:
                 return 'Account already exists!'
             else:
+                print("UNHASHED:",password)
                 hash_password = hashlib.sha1(password.encode()).hexdigest()
 
                 cursor.execute('INSERT INTO Users (username, password) VALUES (%s, %s)', (username, hash_password))
