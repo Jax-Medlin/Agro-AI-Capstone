@@ -8,4 +8,8 @@ app = Flask(__name__)
 app.config.from_object(Config)
 mysql = MySQL(app)
 
+print("MySQL object initialized:", mysql)
+print("MySQL connection:", mysql.connection)
+
+
 from app import web
