@@ -25,6 +25,13 @@ from app.db import get_mysql_connection
 bootstrap = Bootstrap(app)
 
 
+@app.before_request
+def set_loggedin_default():
+    if 'loggedin' not in session:
+        session['loggedin'] = None
+    else: 
+        print("it is set!")
+
 def getData():
     """
     Gets and returns the csvOut.csv as a DataFrame.

@@ -11,7 +11,6 @@ user = 'root'
 password = 'csciGroup10!'
 database = 'AgroAIDB'
 
-session['loggedin'] = None
 mysql_connection = get_mysql_connection()
 
     
