@@ -5,7 +5,7 @@ This method is responsible for the inner workings of the different web pages in 
 from flask import Flask
 from flask import render_template, flash, redirect, url_for, session, request, jsonify
 from flask_mysqldb import MySQL
-from app import app, mysql
+from app import app
 from app.DataPreprocessing import DataPreprocessing
 from app.ML_Class import Active_ML_Model, AL_Encoder, ML_Model
 from app.SamplingMethods import lowestPercentage
