@@ -18,6 +18,7 @@ import numpy as np
 import boto3
 import MySQLdb.cursors
 import MySQLdb.cursors, re, hashlib
+from MySQLdb import OperationalError
 from io import StringIO
 from app.db import get_mysql_connection
 
@@ -271,8 +272,11 @@ def login():
                 else:
                     print("Invalid username or password")  # Debug print
                     return 'Invalid username or password'
+            except OperationalError as oe:
+                print(f'OperationalError: {oe}')  # Debug print
+                return f'OperationalError: {oe}'
             except Exception as e:
-                # Handle database errors
+                # Handle other database errors
                 print(f'Error: {e}')  # Debug print
                 return f'Error: {e}'
             finally:
