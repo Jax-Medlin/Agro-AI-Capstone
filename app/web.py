@@ -4,6 +4,7 @@ This method is responsible for the inner workings of the different web pages in 
 """
 from flask import Flask
 from flask import render_template, flash, redirect, url_for, session, request, jsonify
+from flask_mysqldb import MySQL
 from app import app
 from app.DataPreprocessing import DataPreprocessing
 from app.ML_Class import Active_ML_Model, AL_Encoder, ML_Model
@@ -15,9 +16,12 @@ import pandas as pd
 import os
 import numpy as np
 import boto3
+import MySQLdb.cursors
+import MySQLdb.cursors, re, hashlib
 from io import StringIO
 
 bootstrap = Bootstrap(app)
+mysql = MySQL(app)
 
 def getData():
     """
@@ -180,25 +184,6 @@ def home():
     session.pop('model', None)
     return render_template('index.html')
 
-@app.route("/login.html", methods=['GET', 'POST'])
-def login():
-    """
-    Operates the login(login.html) web page.
-    """
-    if request.method == 'POST':
-        return redirect(url_for('label'))
-    
-    return render_template('login.html')
-
-@app.route("/register.html", methods=['GET', 'POST'])
-def register():
-    """
-    Operates the register(register.html) web page.
-    """
-    if request.method == 'POST':
-        return redirect(url_for('label.html'))
-    
-    return render_template('register.html')
 
 @app.route("/label.html",methods=['GET', 'POST'])
 def label():
@@ -218,8 +203,10 @@ def label():
     elif form.is_submitted() and session['queue'] != []: #Still gathering labels
         session['labels'].append(form.choice.data)
         return renderLabel(form)
-
-    return render_template('label.html', form = form)
+    if 'loggedin' in session:
+        return render_template('label.html', form = form, username=session['username'])
+    else:
+        return redirect('login.html')
 
 @app.route("/intermediate.html",methods=['GET'])
 def intermediate():
@@ -248,5 +235,71 @@ def feedback(h_list,u_list,h_conf_list,u_conf_list):
     u_length = len(u_feedback_result)
     
     return render_template('feedback.html', healthy_list = h_feedback_result, unhealthy_list = u_feedback_result, healthy_conf_list = h_conf_result, unhealthy_conf_list = u_conf_result, h_list_length = h_length, u_list_length = u_length)
+
+@app.route('/login.html', methods=['GET', 'POST'])
+def login():
+    # Output a message if something goes wrong...
+    msg = ''
+    # Check if "username" and "password" POST requests exist (user submitted form)
+    if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
+        # Create variables for easy access
+        username = request.form['username']
+        password = request.form['password']
+        # Check if account exists using MySQL
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM Users WHERE username = %s AND password = %s', (username, password,))
+        # Fetch one record and return result
+        account = cursor.fetchone()
+        # If account exists in accounts table in out database
+        if account:
+            # Create session data, we can access this data in other routes
+            session['loggedin'] = True
+            session['id'] = account['id']
+            session['username'] = account['username']
+            # Redirect to home page
+            return redirect('label.html')
+        
+    # Show the login form with message (if any)
+    return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+    # Remove session data, this will log the user out
+   session.pop('loggedin', None)
+   session.pop('id', None)
+   session.pop('username', None)
+   # Redirect to login page
+   return redirect('index.html')
+
+@app.route('/register.html', methods=['GET', 'POST'])
+def register():
+    # Output message if something goes wrong...
+    msg = ''
+    # Check if "username", "password" POST requests exist (user submitted form)
+    if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
+        # Create variables for easy access
+        username = request.form['username']
+        password = request.form['password']
+         # Check if account exists using MySQL
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM Users WHERE username = %s', (username,))
+        account = cursor.fetchone()
+        # If account exists show error and validation checks
+        if account:
+            alert('Account already exists!')
+        else:
+            # Hash the password
+            hash = password + app.secret_key
+            hash = hashlib.sha1(hash.encode())
+            password = hash.hexdigest()
+            # Account doesn't exist, and the form data is valid, so insert the new account into the accounts table
+            cursor.execute('INSERT INTO Users VALUES (NULL, %s, %s)', (username, password))
+            mysql.connection.commit()
+    elif request.method == 'POST':
+        # Form is empty... (no POST data)
+        msg = 'Please fill out the form!'
+    # Show registration form with message (if any)
+    return render_template('register.html')
+
 
 #app.run( host='127.0.0.1', port=5000, debug='True', use_reloader = False)
