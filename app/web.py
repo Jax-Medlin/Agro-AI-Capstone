@@ -238,28 +238,21 @@ def feedback(h_list,u_list,h_conf_list,u_conf_list):
 
 @app.route('/login.html', methods=['GET', 'POST'])
 def login():
-    # Output a message if something goes wrong...
-    msg = ''
-    # Check if "username" and "password" POST requests exist (user submitted form)
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
-        # Create variables for easy access
         username = request.form['username']
         password = request.form['password']
-        # Check if account exists using MySQL
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM Users WHERE username = %s AND password = %s', (username, password,))
-        # Fetch one record and return result
-        account = cursor.fetchone()
-        # If account exists in accounts table in out database
-        if account:
-            # Create session data, we can access this data in other routes
-            session['loggedin'] = True
-            session['id'] = account['id']
-            session['username'] = account['username']
-            # Redirect to home page
-            return redirect('label.html')
-        
-    # Show the login form with message (if any)
+        connection = get_mysql_connection()
+        if connection:
+            cursor = connection.cursor()
+            cursor.execute('SELECT * FROM Users WHERE username = %s AND password = %s', (username, password))
+            account = cursor.fetchone()
+            cursor.close()
+            connection.close()
+            if account:
+                session['loggedin'] = True
+                session['id'] = account['id']
+                session['username'] = account['username']
+                return redirect('label.html')
     return render_template('login.html')
 
 @app.route('/logout')
