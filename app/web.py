@@ -24,8 +24,6 @@ from app.db import get_mysql_connection
 
 bootstrap = Bootstrap(app)
 
-if 'loggedin' not in session:
-    session['loggedin'] = None
 
 def getData():
     """
