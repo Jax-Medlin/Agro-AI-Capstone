@@ -24,6 +24,17 @@ from app.db import get_mysql_connection
 
 bootstrap = Bootstrap(app)
 
+def login_required(func):
+    def wrapper(*args, **kwargs):
+        # Check if user is logged in
+        if 'loggedin' in session:
+            return func(*args, **kwargs)
+        else:
+            # Redirect to login page if not logged in
+            return redirect(url_for('login'))
+    return wrapper
+
+
 def getData():
     """
     Gets and returns the csvOut.csv as a DataFrame.
@@ -187,6 +198,7 @@ def home():
 
 
 @app.route("/label.html",methods=['GET', 'POST'])
+@login_required
 def label():
     """
     Operates the label(label.html) web page.
