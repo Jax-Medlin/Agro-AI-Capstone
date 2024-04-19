@@ -19,9 +19,9 @@ import boto3
 import MySQLdb.cursors
 import MySQLdb.cursors, re, hashlib
 from io import StringIO
+from db import get_mysql_connection
 
 bootstrap = Bootstrap(app)
-
 
 def getData():
     """
@@ -273,28 +273,36 @@ def logout():
 
 @app.route('/register.html', methods=['GET', 'POST'])
 def register():
+    # Obtain MySQL connection
+    connection = get_mysql_connection()
+    if connection is None:
+        return 'Error connecting to the database'
+
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
         username = request.form['username']
         password = request.form['password']
-        
-        # Check if account exists using MySQL
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM Users WHERE username = %s', (username,))
-        account = cursor.fetchone()
 
-        if account:
-            return 'Account already exists!'
-        else:
-            # Hash the password using SHA-1 (not recommended for production)
-            hash_password = hashlib.sha1(password.encode()).hexdigest()
+        try:
+            # Check if account exists using MySQL
+            cursor = connection.cursor(MySQLdb.cursors.DictCursor)
+            cursor.execute('SELECT * FROM Users WHERE username = %s', (username,))
+            account = cursor.fetchone()
 
-            try:
+            if account:
+                return 'Account already exists!'
+            else:
+                hash_password = hashlib.sha1(password.encode()).hexdigest()
+
                 cursor.execute('INSERT INTO Users (username, password) VALUES (%s, %s)', (username, hash_password))
-                mysql.connection.commit()
+                connection.commit()
                 return 'Registration successful!'
-            except Exception as e:
-                # Handle database errors
-                return f'Error: {e}'
+        except Exception as e:
+            # Handle database errors
+            return f'Error: {e}'
+        finally:
+            # Close the cursor and connection
+            cursor.close()
+            connection.close()
 
     return render_template('register.html')
 

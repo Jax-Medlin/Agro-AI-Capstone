@@ -1,10 +1,5 @@
-from flask import Flask
-from flask_mysqldb import MySQL
-from config import Config
 import MySQLdb
 
-app = Flask(__name__)
-app.config.from_object(Config)
 
 host = 'localhost'
 user = 'root'
@@ -20,5 +15,3 @@ def get_mysql_connection():
     except Exception as e:
         print(f"Error connecting to MySQL: {e}")
         return None
-    
-from app import web
