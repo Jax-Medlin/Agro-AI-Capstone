@@ -31,7 +31,7 @@ def login_required(func):
             return func(*args, **kwargs)
         else:
             # Redirect to login page if not logged in
-            return redirect(url_for('login'))
+            return redirect('login.html')
     return wrapper
 
 
