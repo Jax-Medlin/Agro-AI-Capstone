@@ -23,7 +23,7 @@ from io import StringIO
 bootstrap = Bootstrap(app)
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'csciGroup10'
+app.config['MYSQL_PASSWORD'] = 'csciGroup10!'
 app.config['MYSQL_DB'] = 'AgroAIDB'
 
 # Intialize MySQL
@@ -280,29 +280,29 @@ def logout():
 
 @app.route('/register.html', methods=['GET', 'POST'])
 def register():
-    # Output message if something goes wrong...
-    msg = ''
-    # Check if "username", "password" POST requests exist (user submitted form)
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
-        # Create variables for easy access
         username = request.form['username']
         password = request.form['password']
-         # Check if account exists using MySQL
+        
+        # Check if account exists using MySQL
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM Users WHERE username = %s', (username,))
         account = cursor.fetchone()
-        # If account exists show error and validation checks
+
         if account:
-            alert('Account already exists!')
+            return 'Account already exists!'
         else:
-            # Hash the password
-            hash = password + app.secret_key
-            hash = hashlib.sha1(hash.encode())
-            password = hash.hexdigest()
-            # Account doesn't exist, and the form data is valid, so insert the new account into the accounts table
-            cursor.execute('INSERT INTO Users VALUES (NULL, %s, %s)', (username, password))
-            mysql.connection.commit()
-    # Show registration form with message (if any)
+            # Hash the password using SHA-1 (not recommended for production)
+            hash_password = hashlib.sha1(password.encode()).hexdigest()
+
+            try:
+                cursor.execute('INSERT INTO Users (username, password) VALUES (%s, %s)', (username, hash_password))
+                mysql.connection.commit()
+                return 'Registration successful!'
+            except Exception as e:
+                # Handle database errors
+                return f'Error: {e}'
+
     return render_template('register.html')
 
 
