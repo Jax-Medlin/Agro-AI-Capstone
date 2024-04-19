@@ -208,9 +208,11 @@ def label():
     
     if 'loggedin' in session:
         # User is loggedin show them the home page
+        print("User is logged in")
         return render_template('label.html', form = form)
     # User is not loggedin redirect to login page
-    return redirect('/login.html')
+    print("User not logged in, redirecting to login page")
+    return redirect('login.html')
 
 @app.route("/intermediate.html",methods=['GET'])
 def intermediate():
