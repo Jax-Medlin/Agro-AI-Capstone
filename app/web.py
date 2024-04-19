@@ -279,6 +279,8 @@ def login():
                 cursor.close()
                 connection.close()
 
+    return render_template('login.html')
+
 @app.route('/register.html', methods=['GET', 'POST'])
 def register():
     # Obtain MySQL connection
