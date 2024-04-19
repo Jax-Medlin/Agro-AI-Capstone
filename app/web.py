@@ -188,7 +188,6 @@ def home():
 
 
 @app.route("/label.html",methods=['GET', 'POST'])
-@login_required
 def label():
     """
     Operates the label(label.html) web page.
