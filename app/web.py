@@ -236,6 +236,48 @@ def feedback(h_list,u_list,h_conf_list,u_conf_list):
     
     return render_template('feedback.html', healthy_list = h_feedback_result, unhealthy_list = u_feedback_result, healthy_conf_list = h_conf_result, unhealthy_conf_list = u_conf_result, h_list_length = h_length, u_list_length = u_length)
 
+@app.route('/login.html', methods=['GET', 'POST'])
+def login():
+    print("Login function called")  # Debug print
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        print("Username:", username)  # Debug print
+        print("Password:", password)  # Debug print
+
+        connection = get_mysql_connection()
+        if connection:
+            cursor = connection.cursor()
+            try:
+                # Hash the password for comparison
+                hash_password = hashlib.sha1(password.encode()).hexdigest()
+                print("Hashed Password:", hash_password)  # Debug print
+
+                # Check if account exists and credentials match using MySQL
+                cursor.execute('SELECT * FROM Users WHERE username = %s AND password = %s', (username, hash_password))
+                account = cursor.fetchone()
+                print("Account:", account)  # Debug print
+
+                if account:
+                    # Set session variables
+                    session['loggedin'] = True
+                    session['id'] = account['id']
+                    session['username'] = account['username']
+                    cursor.close()
+                    connection.close()
+                    print("Redirecting to label.html...")  # Debug print
+                    return redirect(url_for('label'))  # Redirect to label.html or appropriate route
+                else:
+                    print("Invalid username or password")  # Debug print
+                    return 'Invalid username or password'
+            except Exception as e:
+                # Handle database errors
+                print(f'Error: {e}')  # Debug print
+                return f'Error: {e}'
+            finally:
+                # Close the cursor and connection
+                cursor.close()
+                connection.close()
 
 @app.route('/register.html', methods=['GET', 'POST'])
 def register():
