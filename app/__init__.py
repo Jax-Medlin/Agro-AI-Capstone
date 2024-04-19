@@ -11,7 +11,7 @@ user = 'root'
 password = 'csciGroup10!'
 database = 'AgroAIDB'
 
-mysql_connection = get_mysql_connection()
+
 
     
 from app import web
