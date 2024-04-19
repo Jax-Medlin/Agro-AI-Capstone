@@ -19,7 +19,7 @@ import boto3
 import MySQLdb.cursors
 import MySQLdb.cursors, re, hashlib
 from io import StringIO
-from db import get_mysql_connection
+from app.db import get_mysql_connection
 
 bootstrap = Bootstrap(app)
 
@@ -236,33 +236,6 @@ def feedback(h_list,u_list,h_conf_list,u_conf_list):
     
     return render_template('feedback.html', healthy_list = h_feedback_result, unhealthy_list = u_feedback_result, healthy_conf_list = h_conf_result, unhealthy_conf_list = u_conf_result, h_list_length = h_length, u_list_length = u_length)
 
-@app.route('/login.html', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
-        username = request.form['username']
-        password = request.form['password']
-        connection = get_mysql_connection()
-        if connection:
-            cursor = connection.cursor()
-            cursor.execute('SELECT * FROM Users WHERE username = %s AND password = %s', (username, password))
-            account = cursor.fetchone()
-            cursor.close()
-            connection.close()
-            if account:
-                session['loggedin'] = True
-                session['id'] = account['id']
-                session['username'] = account['username']
-                return redirect('label.html')
-    return render_template('login.html')
-
-@app.route('/logout')
-def logout():
-    # Remove session data, this will log the user out
-   session.pop('loggedin', None)
-   session.pop('id', None)
-   session.pop('username', None)
-   # Redirect to login page
-   return redirect('index.html')
 
 @app.route('/register.html', methods=['GET', 'POST'])
 def register():
@@ -299,5 +272,13 @@ def register():
 
     return render_template('register.html')
 
+@app.route('/logout')
+def logout():
+    # Remove session data, this will log the user out
+   session.pop('loggedin', None)
+   session.pop('id', None)
+   session.pop('username', None)
+   # Redirect to login page
+   return redirect('index.html')
 
 #app.run( host='127.0.0.1', port=5000, debug='True', use_reloader = False)
