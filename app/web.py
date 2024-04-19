@@ -20,6 +20,8 @@ import MySQLdb.cursors
 import MySQLdb.cursors, re, hashlib
 from io import StringIO
 
+app = Flask(__name__)
+
 bootstrap = Bootstrap(app)
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
