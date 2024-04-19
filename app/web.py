@@ -21,7 +21,14 @@ import MySQLdb.cursors, re, hashlib
 from io import StringIO
 
 bootstrap = Bootstrap(app)
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = 'csciGroup10'
+app.config['MYSQL_DB'] = 'AgroAIDB'
+
+# Intialize MySQL
 mysql = MySQL(app)
+
 
 def getData():
     """
@@ -295,9 +302,6 @@ def register():
             # Account doesn't exist, and the form data is valid, so insert the new account into the accounts table
             cursor.execute('INSERT INTO Users VALUES (NULL, %s, %s)', (username, password))
             mysql.connection.commit()
-    elif request.method == 'POST':
-        # Form is empty... (no POST data)
-        msg = 'Please fill out the form!'
     # Show registration form with message (if any)
     return render_template('register.html')
 
