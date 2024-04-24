@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/index_format.css') }} ">
+<link rel="stylesheet" type="text/css" href="../static/styles/styles.css">
+<body>
+    <div class="container-fluid">
+        <div class="row justify-content-center align-items-center" style="height: 100vh;">
+            <div class="col-md-6 text-center border-custom">
+                <h1 class="start-heading mb-4">Your account has been created!</h1>
+                <p>You may now login with your credentials.</p><br>
+                <a href="login.html"><button class="btn btn-lg btn-primary btn-start font-weight-bold btn-center">Login</button></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}
