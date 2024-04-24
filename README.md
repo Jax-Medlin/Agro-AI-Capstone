@@ -11,3 +11,6 @@ A python script called AI.py was created under the model_training folder to trai
 
 Code Milestone 3:
 requirements.txt was updated with newer/compatible versions of necessary packages. The home page of the application has been updated and finalized to reflect login functionality. A MySQL database has been set up and includes a Users table to store user login information. Additionally, the process of setting up an Ubuntu server on VMWare has also been started, but technical issues are still being worked out.
+
+Code Milestone 4:
+The server on VMWare has been set up. The UI for the login, register account, and registration success pages has been developed. Username and password restrictions have been enabled when registering an account. The MySQL database has been connected to the application, so only users with valid credentials can log in. Different AI models are being explored to try to maximize accuracy.
