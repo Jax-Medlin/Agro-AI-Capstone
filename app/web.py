@@ -285,7 +285,7 @@ def login():
                     return redirect(url_for('label'))  # Redirect to label.html or appropriate route
                 else:
                     print("Invalid username or password")  # Debug print
-                    msg = 'Invalid username or password'
+                    msg = '*Invalid username or password'
             except OperationalError as oe:
                 print(f'OperationalError: {oe}')  # Debug print
                 return f'OperationalError: {oe}'
