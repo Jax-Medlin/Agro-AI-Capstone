@@ -30,3 +30,8 @@
     color: red;
     text-align: left;
 }
+
+.error-container {
+    display: flex;
+    justify-content: flex-start;
+}
