@@ -27,5 +27,6 @@
 }
 
 .error_message {
-    color: red !important;
+    color: red;
+    text-align: left;
 }
