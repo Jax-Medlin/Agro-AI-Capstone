@@ -29,3 +29,7 @@
 .error_message {
     color: red;
 }
+
+.has-error input {
+    border-color: red;
+}
