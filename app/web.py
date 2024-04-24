@@ -249,6 +249,7 @@ def feedback(h_list,u_list,h_conf_list,u_conf_list):
 
 @app.route('/login.html', methods=['GET', 'POST'])
 def login():
+    msg = ''
     print("Login function called")  # Debug print
     if request.method == 'POST':
         username = request.form.get('username')
@@ -284,7 +285,7 @@ def login():
                     return redirect(url_for('label'))  # Redirect to label.html or appropriate route
                 else:
                     print("Invalid username or password")  # Debug print
-                    return 'Invalid username or password'
+                    msg = 'Invalid username or password'
             except OperationalError as oe:
                 print(f'OperationalError: {oe}')  # Debug print
                 return f'OperationalError: {oe}'
@@ -296,7 +297,7 @@ def login():
                 # Close the cursor
                 cursor.close()
 
-    return render_template('login.html')
+    return render_template('login.html', error_message=msg)
 
 @app.route('/register.html', methods=['GET', 'POST'])
 def register():

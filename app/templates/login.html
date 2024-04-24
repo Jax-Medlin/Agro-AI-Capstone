@@ -16,6 +16,9 @@
                         <input type="password" id="password"  name="password"  class="form-control smaller-width" placeholder="Password" required>
                     </div><br>
                     <button type="submit" class="btn btn-lg btn-primary btn-start font-weight-bold btn-center">Login</button>
+                    {% if error_message %}
+                    <p class="error_message">{{ error_message }}</p>
+                    {% endif %}
                 </form><br>
                 <p>Don't have an account? You can register one <a class="underline-link" href="register.html">here!</a></p>
             </div>
