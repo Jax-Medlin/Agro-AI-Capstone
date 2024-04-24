@@ -7,14 +7,11 @@
     <div class="container-fluid">
         <div class="row justify-content-center align-items-center" style="height: 100vh;">
             <div class="col-md-6 text-center border-custom">
-                <h1 class="start-heading mb-4">Login</h1><br>
-                <div class="form-container">
+                <h1 class="start-heading mb-4">Login</h1><br>               
                     <form action="/login.html" method="post">
-                        <div class="error-container">
-                            {% if error_message %}
-                            <p class="error_message">{{ error_message }}</p>
-                            {% endif %}
-                        </div>
+                        {% if error_message %}
+                        <p class="error_message">{{ error_message }}</p>
+                        {% endif %}
                         <div class="form-group">
                             <input type="text" id="username" name="username" class="form-control smaller-width" placeholder="Username" required>
                         </div>
@@ -23,7 +20,6 @@
                         </div><br>
                         <button type="submit" class="btn btn-lg btn-primary btn-start font-weight-bold btn-center">Login</button>
                     </form><br>
-                </div>
                 <p>Don't have an account? You can register one <a class="underline-link" href="register.html">here!</a></p>
             </div>
         </div>
