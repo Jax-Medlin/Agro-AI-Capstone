@@ -199,6 +199,10 @@ def label():
     """
     Operates the label(label.html) web page.
     """
+    if not session.get('loggedin'):
+        print("User not logged in, redirecting to login page")
+        return redirect('login.html')
+
     form = LabelForm()
     if 'model' not in session:#Start
         return initializeAL(form, .7)
@@ -213,13 +217,7 @@ def label():
         session['labels'].append(form.choice.data)
         return renderLabel(form)
     
-    if 'loggedin' in session:
-        # User is loggedin show them the home page
-        print("User is logged in")
-        return render_template('label.html', form = form)
-    # User is not loggedin redirect to login page
-    print("User not logged in, redirecting to login page")
-    return redirect('login.html')
+    return render_template('label.html', form = form)
 
 @app.route("/intermediate.html",methods=['GET'])
 def intermediate():
