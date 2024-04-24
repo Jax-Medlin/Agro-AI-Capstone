@@ -27,5 +27,5 @@
 }
 
 .error_message {
-    color: red;
+    color: red !important;
 }
