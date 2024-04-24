@@ -26,6 +26,6 @@
     margin: 0 auto;
 }
 
-.error-message {
-    color: red !important;
+.error_message {
+    color: red;
 }
