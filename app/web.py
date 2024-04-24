@@ -323,7 +323,7 @@ def register():
 
                 cursor.execute('INSERT INTO Users (username, password) VALUES (%s, %s)', (username, hash_password))
                 connection.commit()
-                return 'Registration successful!'
+                return render_template('registrationSuccess.html')
         except Exception as e:
             # Handle database errors
             return f'Error: {e}'
@@ -340,7 +340,7 @@ def logout():
    session.pop('loggedin', None)
    session.pop('id', None)
    session.pop('username', None)
-   # Redirect to login page
+   # Redirect to home page
    return redirect('index.html')
 
 #app.run( host='127.0.0.1', port=5000, debug='True', use_reloader = False)
