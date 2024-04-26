@@ -7,9 +7,14 @@
 			<h1 class="font-weight-light pb-3 mb-2 mt-4">Final
 				Results <a href="javascript:void(0)" data-toggle="popover" data-trigger="focus" data-content="Based on what you labeled, here are some images that AI identified as &quot;Healthy&quot; or &quot;Unhealthy&quot;">
                             <span class="fa fa-info-circle" style="font-size:24px"></span></h1>
+			<div class="dropdown ml-auto mt-4 mr-4">
+				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Account</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<a class="dropdown-item" href="/logout">Sign Out</a>
+				</div>
+			</div>
 		</div>
 		<div class="text-right">
-			<a href="index.html"><button class="mb-2 mt-4 active_button" data-toggle="tooltip" data-placement="left" title="Go back to the home page and restart training">Home</button></a>
 			<br><br>
 			<h5 class="font-weight-normal">Confidence: {{confidence}}
 			{% if confidence == 1 %}
