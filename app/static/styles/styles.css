@@ -33,3 +33,8 @@
 .has-error input {
     border-color: red;
 }
+
+.btn-transparent {
+    background-color: transparent;
+    border: none;
+}
