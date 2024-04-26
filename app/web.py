@@ -224,6 +224,9 @@ def intermediate():
     """
     Operates the intermediate(intermediate.html) web page.
     """
+    if not session.get('loggedin'):
+        print("User not logged in, redirecting to login page")
+        return redirect('login.html')
     return render_template('intermediate.html')
 
 @app.route("/final.html",methods=['GET'])
@@ -231,6 +234,10 @@ def final():
     """
     Operates the final(final.html) web page.
     """
+    if not session.get('loggedin'):
+        print("User not logged in, redirecting to login page")
+        return redirect('login.html')
+
     return render_template('final.html')
 
 @app.route("/feedback/<h_list>/<u_list>/<h_conf_list>/<u_conf_list>",methods=['GET'])
