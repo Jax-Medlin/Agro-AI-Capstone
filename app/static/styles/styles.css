@@ -33,19 +33,3 @@
 .has-error input {
     border-color: red;
 }
-
-#passwordContainer {
-    position: relative;
-}
-
-#password {
-    padding-right: 30px;
-}
-
-#showPasswordBtn {
-    position: absolute;
-    top: 50%;
-    right: 5px;
-    transform: translateY(-50%);
-    cursor: pointer;
-}
