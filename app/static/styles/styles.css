@@ -33,7 +33,3 @@
 .has-error input {
     border-color: red;
 }
-
-form i {
-    cursor: pointer;
-}
