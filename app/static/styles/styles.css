@@ -38,6 +38,10 @@
     position: relative;
 }
 
+#password {
+    padding-right: 40px;
+}
+
 #togglePassword {
     position: absolute;
     top: 50%;
