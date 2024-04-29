@@ -38,14 +38,11 @@
     position: relative;
 }
 
-#password {
-    padding-right: 40px;
-}
-
 #togglePassword {
     position: absolute;
     top: 50%;
-    right: 20px;
+    right: 10px;
+    padding-right: 40px;
     transform: translateY(-50%);
     cursor: pointer;
 }
