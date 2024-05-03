@@ -1,7 +1,7 @@
+import boto3
 import pandas as pd
 import tensorflow as tf
-from tensorflow.keras.preprocessing import image
-import boto3
+from PIL import Image
 import requests
 from io import BytesIO
 
@@ -10,8 +10,7 @@ model = tf.keras.models.load_model("HH_only_inception_repeat_600by400with20patie
 
 # Function to preprocess image
 def preprocess_image(img):
-    img = image.img_to_array(img)
-    img = tf.image.resize(img, [600, 400])
+    img = img.resize((600, 400))
     img = tf.keras.applications.inception_v3.preprocess_input(img)
     return img
 
@@ -22,7 +21,6 @@ def predict_image(img):
     prediction = model.predict(img)
     return prediction
 
-# Read the CSV file
 s3 = boto3.client('s3')
 path = 's3://cornimagesbucket/csvOut.csv'
 df = pd.read_csv(path)
@@ -31,7 +29,6 @@ df = pd.read_csv(path)
 for index, row in df.iterrows():
     # Get the image name from the first column
     image_name = row[0]
-    print(image_name)
     
     # Construct the image URL
     image_url = f"https://cornimagesbucket.s3.us-east-2.amazonaws.com/images_compressed/{image_name}"
@@ -42,7 +39,7 @@ for index, row in df.iterrows():
     # Check if the request was successful
     if response.status_code == 200:
         # Read the image from the response
-        img = image.load_img(BytesIO(response.content))
+        img = Image.open(BytesIO(response.content))
         
         # Make prediction
         prediction = predict_image(img)
@@ -51,3 +48,4 @@ for index, row in df.iterrows():
         print(f"Prediction for {image_name}: {prediction}")
     else:
         print(f"Failed to fetch image: {image_name}")
+
