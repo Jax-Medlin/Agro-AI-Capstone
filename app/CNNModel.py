@@ -5,27 +5,27 @@ import requests
 from io import BytesIO
 import numpy as np
 
-class CNNModel:
-
-    def __init__(self, csv_file_path, model_file_path)
+class CNNModel
+    def __init__(self, csv_file_path, model_file_path):
+        self.csv_file_path = csv_file_path
+        self.model_file_path = model_file_path
         self.img_to_label_dict = {}
         self.img_to_prediction_prob_dict = {}
         self.model = tf.keras.models.load_model(model_file_path)
 
     # Function to preprocess image
-    def preprocess_image(img):
+    def preprocess_image(self, img):
         img = img.resize((400, 600))
         img_array = np.array(img)
         img = tf.keras.applications.inception_v3.preprocess_input(img_array)
         return img
 
     # Function to make predictions
-    def predict_image(img):
-        img = preprocess_image(img)
+    def predict_image(self, img):
+        img = self.preprocess_image(img)
         img = tf.expand_dims(img, axis=0)
-        prediction = model.predict(img)
+        prediction = self.model.predict(img)
         return prediction
-
 
     def make_predictions(self):
 
@@ -43,7 +43,7 @@ class CNNModel:
 
             # Request the image
             response = requests.get(image_url)ls
-            
+
 
             # Check if the request was successful
             if response.status_code == 200:
@@ -74,3 +74,4 @@ class CNNModel:
             else:
                 print(f"Failed to fetch image: {image_name}")
             count +=1
+        return self.img_to_label_dict, self.img_to_prediction_prob_dict
