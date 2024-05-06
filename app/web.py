@@ -10,6 +10,7 @@ from app.DataPreprocessing import DataPreprocessing
 from app.ML_Class import Active_ML_Model, AL_Encoder, ML_Model
 from app.SamplingMethods import lowestPercentage
 from app.forms import LabelForm
+from app.CNNModel import CNNModel
 from flask_bootstrap import Bootstrap
 from sklearn.ensemble import RandomForestClassifier
 import pandas as pd
@@ -91,6 +92,14 @@ def renderLabel(form):
     session['queue'] = queue
     return render_template(url_for('label'), form = form, picture = img, confidence = session['confidence'])
 
+def getCNNModelPredictions():
+    s3 = boto3.client('s3')
+    csv_path = 's3://cornimagesbucket/csvOut.csv'
+    model_path = "HH_only_inception_repeat_600by400with20patience.h5"
+    cnn_model = CNNModel(csv_path, model_path)
+    img_to_label, img_to_prob = cnn_model.make_predictions()
+    return img_to_label, img_to_prob
+
 def initializeAL(form, confidence_break = .7):
     """
     Initializes the active learning model and sets up the webpage with everything needed to run the application.
@@ -111,6 +120,7 @@ def initializeAL(form, confidence_break = .7):
     ml_classifier = RandomForestClassifier()
     data = getData()
     al_model = Active_ML_Model(data, ml_classifier, preprocess)
+    img_to_label, img_to_prob = getCNNModelPredictions()
 
     session['confidence'] = 0
     session['confidence_break'] = confidence_break
