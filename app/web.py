@@ -308,6 +308,7 @@ def login():
 
 @app.route('/register.html', methods=['GET', 'POST'])
 def register():
+    msg = ''
     # Obtain MySQL connection
     connection = get_mysql_connection()
     if connection is None:
@@ -324,6 +325,7 @@ def register():
             account = cursor.fetchone()
 
             if account:
+                msg = '*Account already exists!'
                 return 'Account already exists!'
             else:
                 print("UNHASHED:",password)
@@ -340,7 +342,7 @@ def register():
             cursor.close()
             connection.close()
 
-    return render_template('register.html')
+    return render_template('register.html', error_message=msg)
 
 @app.route('/logout')
 def logout():
