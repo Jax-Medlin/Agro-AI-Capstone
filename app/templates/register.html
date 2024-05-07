@@ -28,7 +28,7 @@
     <script>
         function validateForm() {
             var username = document.getElementById('username').value;
-            if (!/^[a-zA-Z0-9]$/.test(username)) {
+            if (!/^[a-zA-Z0-9]{4,}$/.test(username)) {
                 alert('Username must be at least 4 characters long and can only contain letters and numbers');
                 return false;
             }
