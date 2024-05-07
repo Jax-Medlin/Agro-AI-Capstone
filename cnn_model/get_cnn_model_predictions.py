@@ -14,7 +14,7 @@ model = tf.keras.models.load_model(CNN_MODEL_FILE_PATH)
 
 # Function to preprocess image
 def preprocess_image(img):
-    img = img.resize((400, 600))
+    img = img.resize((600, 400))
     img_array = np.array(img)
     img = tf.keras.applications.inception_v3.preprocess_input(img_array)
     return img
@@ -72,9 +72,6 @@ for index, row in df.iterrows():
         img_to_prediction_prob_dict[image_name] = predicted_probability
     else:
         print(f"Failed to fetch image: {image_name}")
-
-for key, value in img_to_label_dict.items():
-    print(f"{key}: {value}")
 
 with  open('labels.json', 'w') as lfp:
     json.dump(img_to_label_dict, lfp)
