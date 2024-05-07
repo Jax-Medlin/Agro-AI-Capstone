@@ -7,7 +7,7 @@ from io import BytesIO
 import numpy as np
 import json
 
-CNN_MODEL_FILE_PATH = "HH_only_inception_repeat_600by400with20patience.h5"
+CNN_MODEL_FILE_PATH = "05022023.h5"
 
 # Load the saved model
 model = tf.keras.models.load_model(CNN_MODEL_FILE_PATH)
