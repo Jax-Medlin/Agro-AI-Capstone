@@ -330,7 +330,7 @@ def register():
             account = cursor.fetchone()
 
             if account:
-                msg = '*Account already exists!'
+                msg = '*Account already exists'
             else:
                 print("UNHASHED:",password)
                 hash_password = hashlib.sha1(password.encode()).hexdigest()
