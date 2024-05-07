@@ -186,8 +186,17 @@ def prepairResults(form):
         with open('/home/student/Agro-AI-Capstone/cnn_model/labels.json') as lfp:
             labels = json.load(lfp)
         with open('/home/student/Agro-AI-Capstone/cnn_model/probabilities.json') as pfp:
-            probabilities = json.load(pfp)
-        return render_template('final.html', form = form, confidence = "{:.2%}".format(round(session['confidence'],4)), health_user = health_pic_user, blight_user = blight_pic_user, healthNum_user = len(health_pic_user), blightNum_user = len(blight_pic_user), health_test = health_pic, unhealth_test = blight_pic, healthyNum = len(health_pic), unhealthyNum = len(blight_pic), healthyPct = "{:.2%}".format(len(health_pic)/(200-(len(health_pic_user)+len(blight_pic_user)))), unhealthyPct = "{:.2%}".format(len(blight_pic)/(200-(len(health_pic_user)+len(blight_pic_user)))), h_prob = health_pic_prob, b_prob = blight_pic_prob, cnn_labels = labels, cnn_prob = probabilities)
+            probs = json.load(pfp)
+
+        for pic in health_pic:
+            if pic not in probs.keys():
+                print(f"hp not found: {pic}")
+
+        for pic in blight_pic:
+            if pic not in probs.keys():
+                print(f"unhp not found: {pic}")
+
+        return render_template('final.html', form = form, confidence = "{:.2%}".format(round(session['confidence'],4)), health_user = health_pic_user, blight_user = blight_pic_user, healthNum_user = len(health_pic_user), blightNum_user = len(blight_pic_user), health_test = health_pic, unhealth_test = blight_pic, healthyNum = len(health_pic), unhealthyNum = len(blight_pic), healthyPct = "{:.2%}".format(len(health_pic)/(200-(len(health_pic_user)+len(blight_pic_user)))), unhealthyPct = "{:.2%}".format(len(blight_pic)/(200-(len(health_pic_user)+len(blight_pic_user)))), h_prob = health_pic_prob, b_prob = blight_pic_prob, cnn_labels = labels, cnn_prob = probs)
 
 @app.route("/", methods=['GET'])
 @app.route("/index.html",methods=['GET'])

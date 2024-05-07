@@ -56,7 +56,7 @@ for index, row in df.iterrows():
         predicted_probability = float(predicted_probability)
 
 # Threshold for classification
-        threshold = 0.5  # You can adjust this threshold as needed
+        threshold = 0.4  # You can adjust this threshold as needed
         
 # Make binary prediction based on threshold
         if predicted_probability >= threshold:
