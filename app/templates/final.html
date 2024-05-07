@@ -89,6 +89,8 @@
 					<img class="img-fluid img-rounded"
 						src="https://cornimagesbucket.s3.us-east-2.amazonaws.com/images_compressed/{{health_test[i]}}"
 						alt="">
+					<h6 class="font-weight-normal">CNN Model Label: {{cnn_labels[health_test[i]]}}
+					<h6 class="font-weight-normal">CNN Model Confidence: {{"{:.0%}".format(cnn_prob[health_test[i]])}}
 					<h6 class="font-weight-normal">Individual Confidence: {{"{:.0%}".format(h_prob[i])}}
 					<h6 class="font-weight-normal">Disagree with the prediction?
 	                <input type="checkbox" name="healthy" value="{{health_test[i]}}" conf-value="{{h_prob[i]}}"><br>
@@ -118,6 +120,8 @@
 					<img class="img-fluid img-rounded"
 						src="https://cornimagesbucket.s3.us-east-2.amazonaws.com/images_compressed/{{unhealth_test[i]}}"
 						alt="">
+					<h6 class="font-weight-normal">CNN Model Label: {{cnn_labels[unhealth_test[i]]}}
+					<h6 class="font-weight-normal">CNN Model Confidence: {{"{:.0%}".format(cnn_prob[unhealth_test[i]])}}
 					<h6 class="font-weight-normal">Individual Confidence: {{"{:.0%}".format(b_prob[i])}}
 					<h6 class="font-weight-normal">Disagree with the prediction?
 	                <input type="checkbox" name="unhealthy" value="{{unhealth_test[i]}}" conf-value="{{b_prob[i]}}"><br>
