@@ -5,19 +5,19 @@ This project aims to demonstrate the benfits of AI use in agriculture and educat
 
 #Getting started
 After ensuring the necessary keras model file is in the cnn_model folder, navigate to that folder and enable the model to make predictions using the following command:
-'''bash
+```bash
 python3 get_cnn_model_predictions.py
-'''
+```
 This will dump the model's predictions into labels.json and probabilities.json
 
 Next navigate back one folder in order to run the flask application, which can be achieved with the following command:
-'''bash
+```bash
 gunicorn -b 0.0.0.0:8000 wsgi:app
-'''
+```
 If necessary, a timeout flag can be included:
-'''bash
+```bash
 gunicorn -b 0.0.0.0:8000 --timeout 5000 wsgi:app
-'''
+```
 Once running, the application can be accessed via a web browser at http://137.48.186.128:8000/
 
 Release Notes:
