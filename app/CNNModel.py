@@ -5,7 +5,7 @@ import requests
 from io import BytesIO
 import numpy as np
 
-class CNNModel
+class CNNModel:
     def __init__(self, csv_file_path, model_file_path):
         self.csv_file_path = csv_file_path
         self.model_file_path = model_file_path
@@ -42,7 +42,7 @@ class CNNModel
             image_url = f"https://cornimagesbucket.s3.us-east-2.amazonaws.com/images_compressed/{image_name}"
 
             # Request the image
-            response = requests.get(image_url)ls
+            response = requests.get(image_url)
 
 
             # Check if the request was successful
