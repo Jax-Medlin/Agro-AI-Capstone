@@ -3,7 +3,7 @@
 This method is responsible for the inner workings of the different web pages in this application.
 """
 from flask import Flask
-from flask import render_template, flash, redirect, url_for, session, request, jsonify
+from flask import render_template, flash, redirect, url_for, session, request
 from flask_mysqldb import MySQL
 from app import app
 from app.DataPreprocessing import DataPreprocessing
@@ -22,6 +22,7 @@ import MySQLdb.cursors, re, hashlib
 from MySQLdb import OperationalError
 from io import StringIO
 from app.db import get_mysql_connection
+import json
 
 bootstrap = Bootstrap(app)
 
@@ -92,14 +93,6 @@ def renderLabel(form):
     session['queue'] = queue
     return render_template(url_for('label'), form = form, picture = img, confidence = session['confidence'])
 
-def getCNNModelPredictions():
-    s3 = boto3.client('s3')
-    csv_path = 's3://cornimagesbucket/csvOut.csv'
-    model_path = "HH_only_inception_repeat_600by400with20patience.h5"
-    cnn_model = CNNModel(csv_path, model_path)
-    img_to_label, img_to_prob = cnn_model.make_predictions()
-    return img_to_label, img_to_prob
-
 def initializeAL(form, confidence_break = .7):
     """
     Initializes the active learning model and sets up the webpage with everything needed to run the application.
@@ -120,7 +113,6 @@ def initializeAL(form, confidence_break = .7):
     ml_classifier = RandomForestClassifier()
     data = getData()
     al_model = Active_ML_Model(data, ml_classifier, preprocess)
-    img_to_label, img_to_prob = getCNNModelPredictions()
 
     session['confidence'] = 0
     session['confidence_break'] = confidence_break
@@ -192,7 +184,11 @@ def prepairResults(form):
     else:
         test_set = data.loc[session['test'], :]
         health_pic_user, blight_pic_user, health_pic, blight_pic, health_pic_prob, blight_pic_prob = ml_model.infoForResults(train_img_names, test_set)
-        return render_template('final.html', form = form, confidence = "{:.2%}".format(round(session['confidence'],4)), health_user = health_pic_user, blight_user = blight_pic_user, healthNum_user = len(health_pic_user), blightNum_user = len(blight_pic_user), health_test = health_pic, unhealth_test = blight_pic, healthyNum = len(health_pic), unhealthyNum = len(blight_pic), healthyPct = "{:.2%}".format(len(health_pic)/(200-(len(health_pic_user)+len(blight_pic_user)))), unhealthyPct = "{:.2%}".format(len(blight_pic)/(200-(len(health_pic_user)+len(blight_pic_user)))), h_prob = health_pic_prob, b_prob = blight_pic_prob)
+        with open('/cnn_models/labels.json') as lfp:
+            labels = json.load(lfp)
+        with open('/cnn_models/probabilities.json') as pfp:
+            probabilities = json.load(pfp)
+        return render_template('final.html', form = form, confidence = "{:.2%}".format(round(session['confidence'],4)), health_user = health_pic_user, blight_user = blight_pic_user, healthNum_user = len(health_pic_user), blightNum_user = len(blight_pic_user), health_test = health_pic, unhealth_test = blight_pic, healthyNum = len(health_pic), unhealthyNum = len(blight_pic), healthyPct = "{:.2%}".format(len(health_pic)/(200-(len(health_pic_user)+len(blight_pic_user)))), unhealthyPct = "{:.2%}".format(len(blight_pic)/(200-(len(health_pic_user)+len(blight_pic_user)))), h_prob = health_pic_prob, b_prob = blight_pic_prob, cnn_labels = labels, cnn_prob = probabilities)
 
 @app.route("/", methods=['GET'])
 @app.route("/index.html",methods=['GET'])
