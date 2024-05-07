@@ -10,7 +10,6 @@ from app.DataPreprocessing import DataPreprocessing
 from app.ML_Class import Active_ML_Model, AL_Encoder, ML_Model
 from app.SamplingMethods import lowestPercentage
 from app.forms import LabelForm
-from app.CNNModel import CNNModel
 from flask_bootstrap import Bootstrap
 from sklearn.ensemble import RandomForestClassifier
 import pandas as pd
@@ -184,9 +183,9 @@ def prepairResults(form):
     else:
         test_set = data.loc[session['test'], :]
         health_pic_user, blight_pic_user, health_pic, blight_pic, health_pic_prob, blight_pic_prob = ml_model.infoForResults(train_img_names, test_set)
-        with open('/cnn_models/labels.json') as lfp:
+        with open('/home/student/Agro-AI-Capstone/cnn_model/labels.json') as lfp:
             labels = json.load(lfp)
-        with open('/cnn_models/probabilities.json') as pfp:
+        with open('/home/student/Agro-AI-Capstone/cnn_model/probabilities.json') as pfp:
             probabilities = json.load(pfp)
         return render_template('final.html', form = form, confidence = "{:.2%}".format(round(session['confidence'],4)), health_user = health_pic_user, blight_user = blight_pic_user, healthNum_user = len(health_pic_user), blightNum_user = len(blight_pic_user), health_test = health_pic, unhealth_test = blight_pic, healthyNum = len(health_pic), unhealthyNum = len(blight_pic), healthyPct = "{:.2%}".format(len(health_pic)/(200-(len(health_pic_user)+len(blight_pic_user)))), unhealthyPct = "{:.2%}".format(len(blight_pic)/(200-(len(health_pic_user)+len(blight_pic_user)))), h_prob = health_pic_prob, b_prob = blight_pic_prob, cnn_labels = labels, cnn_prob = probabilities)
 

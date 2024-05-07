@@ -35,7 +35,6 @@ img_to_prediction_prob_dict={}
 
 # Iterate through each row in the DataFrame
 for index, row in df.iterrows():
-    print(count)
     # Get the image name from the first column
     image_name = row[0]
 
@@ -54,6 +53,7 @@ for index, row in df.iterrows():
         prediction = predict_image(img)
         # Assuming prediction is a single probability indicating likelihood of being unhealthy
         predicted_probability = prediction[0][0]  # Assuming the probability is in the first index
+        predicted_probability = float(predicted_probability)
 
 # Threshold for classification
         threshold = 0.5  # You can adjust this threshold as needed
@@ -77,7 +77,7 @@ for key, value in img_to_label_dict.items():
     print(f"{key}: {value}")
 
 with  open('labels.json', 'w') as lfp:
-    json.dump(img_to_label_dict, fp)
+    json.dump(img_to_label_dict, lfp)
 
 with  open('probabilities.json', 'w') as pfp:
-    json.dump(img_to_prediction_prob_dict, fp)
+    json.dump(img_to_prediction_prob_dict, pfp)
