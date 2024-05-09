@@ -151,7 +151,7 @@ def getNextSetOfImages(form, sampling_method):
 
 def prepairResults(form):
     """
-    Creates the new machine learning model and gets the confidence of the machine learning model.
+    Creates the new machine learning model, gets the confidence of that model, and reads CNN model labels and confidence for display.
 
     Parameters
     ----------
@@ -161,7 +161,7 @@ def prepairResults(form):
     Returns
     -------
     render_template : flask function
-        renders the appropriate webpage based on new confidence score.
+        renders the appropriate webpage based on new confidence score and CNN model predictions.
     """
     session['labels'].append(form.choice.data)
     session['sample'] = tuple(zip(session['sample_idx'], session['labels']))
