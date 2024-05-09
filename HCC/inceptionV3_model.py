@@ -1,5 +1,6 @@
 import numpy as np
 import tensorflow as tf
+from tensorflow.keras.layers import Dropout
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, GlobalAveragePooling2D
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
@@ -10,7 +11,7 @@ from tensorflow.keras.callbacks import EarlyStopping
 early_stopping = EarlyStopping(monitor='val_accuracy', patience=20, restore_best_weights=True)
 
 # Define constants
-IMAGE_SIZE = (600, 400)
+IMAGE_SIZE = (400, 600)
 BATCH_SIZE = 32
 NUM_CLASSES = 2
 
@@ -19,8 +20,17 @@ train_dir = '/work/hsiycsci4970/jaxmedlin/handheld_ouput/training'
 validation_dir = '/work/hsiycsci4970/jaxmedlin/handheld_ouput/validation'
 
 # Data preprocessing
-train_datagen = ImageDataGenerator(rescale=1./255)
-validation_datagen = ImageDataGenerator(rescale=1./255)
+train_datagen = ImageDataGenerator(
+    rescale=1./255,
+    rotation_range=20,
+    width_shift_range=0.2,
+    height_shift_range=0.2,
+    shear_range=0.2,
+    zoom_range=0.2,
+    horizontal_flip=True,
+)
+
+validation_datagen = ImageDataGenerator(rescale=1./255)  # No augmentation for validation data
 
 train_generator = train_datagen.flow_from_directory(
     train_dir,
@@ -53,6 +63,7 @@ validation_dataset = tf.data.Dataset.from_generator(
 base_model = InceptionV3(weights='imagenet', include_top=False, input_shape=(IMAGE_SIZE[0], IMAGE_SIZE[1], 3))
 x = GlobalAveragePooling2D()(base_model.output)
 x = Dense(256, activation='relu')(x)
+x = Dropout(0.5)(x)
 output = Dense(1, activation='sigmoid')(x)  # Output layer with 1 neuron and sigmoid activation
 model = tf.keras.Model(inputs=base_model.input, outputs=output)
 
@@ -76,4 +87,4 @@ history = model.fit(
     callbacks=[early_stopping]  # Pass the early stopping callback
 )
 # Save the model
-model.save('HH_only_inception_repeat_600by400with20patience.h5')
+model.save('05022023.h5')                                                     
