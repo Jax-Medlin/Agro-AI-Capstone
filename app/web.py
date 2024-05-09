@@ -262,6 +262,9 @@ def feedback(h_list,u_list,h_conf_list,u_conf_list):
 
 @app.route('/login.html', methods=['GET', 'POST'])
 def login():
+    """
+    Operates the login(login.html) web page.
+    """
     msg = ''
     print("Login function called")  # Debug print
     if request.method == 'POST':
@@ -314,6 +317,9 @@ def login():
 
 @app.route('/register.html', methods=['GET', 'POST'])
 def register():
+    """
+    Operates the register(register.html) web page.
+    """
     msg = ''
     # Obtain MySQL connection
     connection = get_mysql_connection()
@@ -351,6 +357,9 @@ def register():
 
 @app.route('/logout')
 def logout():
+   """
+   Operates the logout functionality
+   """
     # Remove session data, this will log the user out
    session.pop('loggedin', None)
    session.pop('id', None)
