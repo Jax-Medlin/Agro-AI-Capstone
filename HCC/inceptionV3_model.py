@@ -1,3 +1,4 @@
+"""Generate and save InceptionV3 model """
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.layers import Dropout
