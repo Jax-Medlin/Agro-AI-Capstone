@@ -14,6 +14,15 @@ model = tf.keras.models.load_model(CNN_MODEL_FILE_PATH)
 
 # Function to preprocess image
 def preprocess_image(img):
+    """
+    Resize images to size to be compatible with model
+
+    Args:
+        img (PIL.JpegImagePlugin.JpegImageFile): The image to be resized
+
+    Returns:
+        PIL.JpegImagePlugin.JpegImageFile: The image after preprocessing.
+    """
     img = img.resize((600, 400))
     img_array = np.array(img)
     img = tf.keras.applications.inception_v3.preprocess_input(img_array)
@@ -21,6 +30,15 @@ def preprocess_image(img):
 
 # Function to make predictions
 def predict_image(img):
+    """
+    Use loaded CNN Model to make a prediction for a single image
+
+    Args:
+        img (PIL.JpegImagePlugin.JpegImageFile): The image used for prediction
+
+    Returns:
+        numpy.ndarray: The model's prediction for the image
+    """
     img = preprocess_image(img)
     img = tf.expand_dims(img, axis=0)
     prediction = model.predict(img)
