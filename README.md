@@ -3,7 +3,7 @@
 
 This project aims to demonstrate the benfits of AI use in agriculture and educate those who may not be familiar with AI's interworkings. The app makes use of both a Random Forest and pre-trained Keras CNN model to highlight the difference between the two.
 
-#Getting started
+# Getting started
 After ensuring the necessary keras model file is in the cnn_model folder, navigate to that folder and enable the model to make predictions using the following command:
 ```bash
 python3 get_cnn_model_predictions.py
