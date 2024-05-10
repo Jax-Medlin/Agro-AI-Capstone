@@ -92,7 +92,7 @@ def renderLabel(form):
     session['queue'] = queue
     return render_template(url_for('label'), form = form, picture = img, confidence = session['confidence'])
 
-def initializeAL(form, confidence_break = .7):
+def initializeAL(form, confidence_break = .5):
     """
     Initializes the active learning model and sets up the webpage with everything needed to run the application.
 
