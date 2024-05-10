@@ -131,6 +131,18 @@ class AgroAITest(unittest.TestCase):
         actual_url = self.driver.current_url
         self.assertEqual(expected_url, actual_url, f"Expected URL: {expected_url}, Actual URL: {actual_url}")
 
+    def test_invalid_login(self):
+        try_btn = self.driver.find_element(by=By.ID, value="try-now-btn")
+        try_btn.click()
+        login_username = self.driver.find_element(by=By.NAME, value="username")
+        login_password = self.driver.find_element(by=By.NAME, value="password")
+        login_btn = self.driver.find_element(by=By.CSS_SELECTOR, value="button[type='submit']")
+        login_username.send_keys("abc")
+        login_password.send_keys("123")
+        login_btn.click()
+        error_message = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.CLASS_NAME, "error_message")))
+        self.assertTrue(error_message.is_displayed(), "Error message is not displayed")
+
     #Test logging out from label page returns user to home page
     def test_label_logout(self):
         try_btn = self.driver.find_element(by=By.ID, value="try-now-btn")
