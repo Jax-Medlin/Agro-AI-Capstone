@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['x_0',['X',['../classapp_1_1_m_l___class_1_1_m_l___model.html#ae0ee5234a97de6a453a95f6889c50677',1,'app::ML_Class::ML_Model']]],
-  ['x_1',['x',['../namespace_a_i.html#ae3850726221c501c5b9669474bde5a73',1,'AI']]]
+  ['user_0',['user',['../namespaceapp.html#a1033e36bda4cb1a801b61d59247dfe79',1,'app.user'],['../namespaceapp_1_1db.html#a713d7895c78dda0ae4a7f251352416be',1,'app.db.user']]]
 ];

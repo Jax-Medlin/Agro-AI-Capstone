@@ -1,10 +1,21 @@
 var searchData=
 [
-  ['test_0',['test',['../classapp_1_1_m_l___class_1_1_active___m_l___model.html#ab4b0ba870b71bd7d2e0cab8c0a954971',1,'app::ML_Class::Active_ML_Model']]],
-  ['train_1',['train',['../classapp_1_1_m_l___class_1_1_active___m_l___model.html#a41e6459e2d6140e3904fd41c590fe35b',1,'app::ML_Class::Active_ML_Model']]],
-  ['train_2',['Train',['../classapp_1_1_m_l___class_1_1_active___m_l___model.html#a3e098b0c40237123db1c5d41e33c4f5a',1,'app::ML_Class::Active_ML_Model']]],
-  ['train_5fdatagen_3',['train_datagen',['../namespace_a_i.html#ad2a7de010313c4057418148792a57912',1,'AI']]],
-  ['train_5fdir_4',['train_dir',['../namespace_a_i.html#a88e4fb165b2105d5c1a1a984b6db9285',1,'AI']]],
-  ['train_5fgenerator_5',['train_generator',['../namespace_a_i.html#a7132b36e9f698e7404a24db3d8378ad9',1,'AI']]],
-  ['transform_6',['transform',['../classapp_1_1_data_preprocessing_1_1_data_preprocessing.html#a4ce884343e21641e3cd9ed1b536f35ca',1,'app::DataPreprocessing::DataPreprocessing']]]
+  ['teardown_0',['tearDown',['../classselenium__test_1_1_agro_a_i_test.html#a2886e863e15621ddf83d574681a9d5df',1,'selenium_test::AgroAITest']]],
+  ['test_1',['test',['../classapp_1_1_m_l___class_1_1_active___m_l___model.html#ab4b0ba870b71bd7d2e0cab8c0a954971',1,'app::ML_Class::Active_ML_Model']]],
+  ['test_5flabel_5flogout_2',['test_label_logout',['../classselenium__test_1_1_agro_a_i_test.html#a5734efaa50f0fe9e4eea4e3d16e1c1fc',1,'selenium_test::AgroAITest']]],
+  ['test_5fnot_5fin_5fsession_3',['test_not_in_session',['../classselenium__test_1_1_agro_a_i_test.html#aa87459f3f33cd8654c256c7b7f946d24',1,'selenium_test::AgroAITest']]],
+  ['test_5fregister_5fand_5flogin_4',['test_register_and_login',['../classselenium__test_1_1_agro_a_i_test.html#a1cbecaf7b598586ccf2681a1710b852d',1,'selenium_test::AgroAITest']]],
+  ['test_5fregister_5flink_5',['test_register_link',['../classselenium__test_1_1_agro_a_i_test.html#a16f7a1c4f51c7f09ea284b331aec299f',1,'selenium_test::AgroAITest']]],
+  ['test_5fregister_5fpassword_5fshort_6',['test_register_password_short',['../classselenium__test_1_1_agro_a_i_test.html#aa301392dbedf025b8a2cc49159eef8a7',1,'selenium_test::AgroAITest']]],
+  ['test_5fregister_5fusername_5fshort_7',['test_register_username_short',['../classselenium__test_1_1_agro_a_i_test.html#ac45eaa98075bea3c765e26393b6d1d95',1,'selenium_test::AgroAITest']]],
+  ['test_5fregister_5fusername_5fspecial_5fchars_8',['test_register_username_special_chars',['../classselenium__test_1_1_agro_a_i_test.html#a3e43bc360d9c5c3db0d909765361e12a',1,'selenium_test::AgroAITest']]],
+  ['test_5ftry_5fnow_5fbutton_9',['test_try_now_button',['../classselenium__test_1_1_agro_a_i_test.html#a9b5c8fa622ae2c6a7908571c5b268547',1,'selenium_test::AgroAITest']]],
+  ['threshold_10',['threshold',['../namespaceget__cnn__model__predictions.html#ab7df287fbb2a21951c12e92f7f433c10',1,'get_cnn_model_predictions']]],
+  ['train_11',['Train',['../classapp_1_1_m_l___class_1_1_active___m_l___model.html#a3e098b0c40237123db1c5d41e33c4f5a',1,'app::ML_Class::Active_ML_Model']]],
+  ['train_12',['train',['../classapp_1_1_m_l___class_1_1_active___m_l___model.html#a41e6459e2d6140e3904fd41c590fe35b',1,'app::ML_Class::Active_ML_Model']]],
+  ['train_5fdatagen_13',['train_datagen',['../namespaceinception_v3__model.html#ac8e1d6b22969b768336c56a11960f7cc',1,'inceptionV3_model']]],
+  ['train_5fdataset_14',['train_dataset',['../namespaceinception_v3__model.html#ad812820c3b7310030ea77969aa86de35',1,'inceptionV3_model']]],
+  ['train_5fdir_15',['train_dir',['../namespaceinception_v3__model.html#a2c1ef51226c8196428733d3769900b71',1,'inceptionV3_model']]],
+  ['train_5fgenerator_16',['train_generator',['../namespaceinception_v3__model.html#ad49372ffd4dc49daab68f34d3da44f54',1,'inceptionV3_model']]],
+  ['transform_17',['transform',['../classapp_1_1_data_preprocessing_1_1_data_preprocessing.html#a4ce884343e21641e3cd9ed1b536f35ca',1,'app::DataPreprocessing::DataPreprocessing']]]
 ];

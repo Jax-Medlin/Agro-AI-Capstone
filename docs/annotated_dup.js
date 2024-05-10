@@ -18,5 +18,8 @@ var annotated_dup =
     ] ],
     [ "config", "namespaceconfig.html", [
       [ "Config", "classconfig_1_1_config.html", null ]
+    ] ],
+    [ "selenium_test", "namespaceselenium__test.html", [
+      [ "AgroAITest", "classselenium__test_1_1_agro_a_i_test.html", "classselenium__test_1_1_agro_a_i_test" ]
     ] ]
 ];

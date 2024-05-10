@@ -2,6 +2,7 @@ var dir_d422163b96683743ed3963d4aac17747 =
 [
     [ "__init__.py", "____init_____8py.html", "____init_____8py" ],
     [ "DataPreprocessing.py", "_data_preprocessing_8py.html", "_data_preprocessing_8py" ],
+    [ "db.py", "db_8py.html", "db_8py" ],
     [ "forms.py", "forms_8py.html", "forms_8py" ],
     [ "ImagePreprocessing.py", "_image_preprocessing_8py.html", "_image_preprocessing_8py" ],
     [ "ML_Class.py", "_m_l___class_8py.html", "_m_l___class_8py" ],

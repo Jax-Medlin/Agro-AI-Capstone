@@ -1,10 +1,13 @@
 var searchData=
 [
-  ['nonblightmask_0',['nonBlightMask',['../namespace_advanced_feature_tuner.html#a0c7d2c9ef8c5625582e045b58c1a9e88',1,'AdvancedFeatureTuner']]],
-  ['norm_1',['norm',['../classapp_1_1_data_preprocessing_1_1_data_preprocessing.html#aceba2e4831ed65afc44b489da157b257',1,'app::DataPreprocessing::DataPreprocessing']]],
-  ['num_5fclasses_2',['NUM_CLASSES',['../namespace_a_i.html#aa25a4320b4c225e25f7ce93e01bfe407',1,'AI']]],
-  ['num_5frgb_5fblightedpixels_3',['num_RGB_blightedPixels',['../namespace_advanced_feature_tuner.html#afac2f8ad6eb86104eb9d13db5e989d0b',1,'AdvancedFeatureTuner']]],
-  ['numblightedbothpixels_4',['numBlightedBothPixels',['../namespace_advanced_feature_tuner.html#aee35828daa7e7c97af6a1b702ec0ff66',1,'AdvancedFeatureTuner']]],
-  ['numblightedhsvpixels_5',['numBlightedHSVPixels',['../namespace_advanced_feature_tuner.html#af89d06224cbc0e395add8deae8641591',1,'AdvancedFeatureTuner']]],
-  ['numforegroundpixels_6',['numForegroundPixels',['../namespace_advanced_feature_tuner.html#aedc32da5c346af7442c055648d5447e8',1,'AdvancedFeatureTuner']]]
+  ['mask_0',['mask',['../namespace_advanced_feature_tuner.html#a508dffd075047b260dd54aea11baf336',1,'AdvancedFeatureTuner']]],
+  ['max_5fcount_1',['max_count',['../namespace_resize_images.html#a196cac89d2dd774338701ee138553f1d',1,'ResizeImages']]],
+  ['metrics_2',['metrics',['../namespaceinception_v3__model.html#a004872f16fbb237f9b42b50bf596a857',1,'inceptionV3_model']]],
+  ['ml_5fclassifier_3',['ml_classifier',['../classapp_1_1_m_l___class_1_1_m_l___model.html#a0407b3ad039b2c5a23f9548c1778378a',1,'app.ML_Class.ML_Model.ml_classifier'],['../classapp_1_1_m_l___class_1_1_active___m_l___model.html#a5b31f56b1a396be6c20edd0b847dcb40',1,'app.ML_Class.Active_ML_Model.ml_classifier']]],
+  ['ml_5fmodel_4',['ml_model',['../classapp_1_1_m_l___class_1_1_m_l___model.html#afa1e59423fd5449daa6c5eada5221c72',1,'app.ML_Class.ML_Model.ml_model'],['../classapp_1_1_m_l___class_1_1_active___m_l___model.html#a36d326645294a0347963147cfa0f691d',1,'app.ML_Class.Active_ML_Model.ml_model']]],
+  ['model_5',['model',['../namespaceget__cnn__model__predictions.html#adca3a2e9237889f863d1eb0b2b2b5fea',1,'get_cnn_model_predictions.model'],['../namespaceinception_v3__model.html#abf1cdd0d777d32f3e2227b20d5984f51',1,'inceptionV3_model.model']]],
+  ['mysql_5fdb_6',['MYSQL_DB',['../classconfig_1_1_config.html#a6868fe79146c9a3b55febc81313b97f5',1,'config::Config']]],
+  ['mysql_5fhost_7',['MYSQL_HOST',['../classconfig_1_1_config.html#a24b25cee0159faf8ddbaa88abc440d1f',1,'config::Config']]],
+  ['mysql_5fpassword_8',['MYSQL_PASSWORD',['../classconfig_1_1_config.html#a679949f7d682b76a9996b28bcbf2cae1',1,'config::Config']]],
+  ['mysql_5fuser_9',['MYSQL_USER',['../classconfig_1_1_config.html#a6f249b5ca292d81c128d42a03fd9efb2',1,'config::Config']]]
 ];

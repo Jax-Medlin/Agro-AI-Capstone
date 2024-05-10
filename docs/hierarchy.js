@@ -7,6 +7,9 @@ var hierarchy =
     [ "object", null, [
       [ "config.Config", "classconfig_1_1_config.html", null ]
     ] ],
+    [ "unittest.TestCase", null, [
+      [ "selenium_test.AgroAITest", "classselenium__test_1_1_agro_a_i_test.html", null ]
+    ] ],
     [ "FlaskForm", null, [
       [ "app.forms.LabelForm", "classapp_1_1forms_1_1_label_form.html", null ]
     ] ],

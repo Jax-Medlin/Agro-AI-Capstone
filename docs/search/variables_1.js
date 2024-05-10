@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['base_5fmodel_0',['base_model',['../namespace_a_i.html#a51c8438e1bf330b4892bea7cc2ce3339',1,'AI']]],
-  ['batch_5fsize_1',['BATCH_SIZE',['../namespace_a_i.html#afa53cc2313c12fdf8d3fbbc7206cb90f',1,'AI']]],
+  ['base_5fmodel_0',['base_model',['../namespaceinception_v3__model.html#abaf81a567815f8b0c4b583d02c25b64c',1,'inceptionV3_model']]],
+  ['batch_5fsize_1',['BATCH_SIZE',['../namespaceinception_v3__model.html#aaf4c166b57190837b7771fa103e1f72c',1,'inceptionV3_model']]],
   ['binary_5fblue_2',['binary_blue',['../namespace_advanced_feature_tuner.html#a2c91bd3a91faae58e5055d4001b63a51',1,'AdvancedFeatureTuner']]],
   ['binary_5fgreen_3',['binary_green',['../namespace_advanced_feature_tuner.html#afd9d625127471c564d18794db8e7efcc',1,'AdvancedFeatureTuner']]],
   ['binary_5fred_4',['binary_red',['../namespace_advanced_feature_tuner.html#a48df66bb4682347cd6f1d41283f7c7a5',1,'AdvancedFeatureTuner']]],

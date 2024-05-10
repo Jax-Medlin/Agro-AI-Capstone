@@ -24,8 +24,10 @@
 */
 var NAVTREE =
 [
-  [ "Agro-AI", "index.html", [
-    [ "Agro-AI-Capstone", "md__r_e_a_d_m_e.html", null ],
+  [ "AgroAI", "index.html", [
+    [ "Agro-AI-Capstone", "md__r_e_a_d_m_e.html", [
+      [ "Getting started", "md__r_e_a_d_m_e.html#autotoc_md1", null ]
+    ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -53,7 +55,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "____init_____8py.html",
-"namespaceapp.html"
+"namespace_advanced_feature_tuner.html#a21bcc6cf7bdedafaaf43e3f9c73dac12"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

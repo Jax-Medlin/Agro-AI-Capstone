@@ -38,32 +38,53 @@ var namespaces_dup =
       [ "satMask", "namespace_advanced_feature_tuner.html#ae70bf4f07e775278b09d80ef74abca06", null ],
       [ "value_img", "namespace_advanced_feature_tuner.html#a562f180eba686e72fcae5427947762f3", null ]
     ] ],
-    [ "AI", "namespace_a_i.html", [
-      [ "base_model", "namespace_a_i.html#a51c8438e1bf330b4892bea7cc2ce3339", null ],
-      [ "BATCH_SIZE", "namespace_a_i.html#afa53cc2313c12fdf8d3fbbc7206cb90f", null ],
-      [ "EPOCHS", "namespace_a_i.html#a1c20d1a86c748328083249cce928d39c", null ],
-      [ "history", "namespace_a_i.html#a58cdbe7037ce9407d6af565f7791c0ef", null ],
-      [ "IMAGE_SIZE", "namespace_a_i.html#af9a190917f706a1d3ffa90e56dc742fe", null ],
-      [ "loss", "namespace_a_i.html#aa73cce802ca52e0636c19ee759e158b9", null ],
-      [ "metrics", "namespace_a_i.html#a2c6ec8d2775b610ebe34d8dfc2039269", null ],
-      [ "model", "namespace_a_i.html#aa1cb047409f0905a821f9358bcc0a3c1", null ],
-      [ "NUM_CLASSES", "namespace_a_i.html#aa25a4320b4c225e25f7ce93e01bfe407", null ],
-      [ "optimizer", "namespace_a_i.html#afa878fb56cf858841d6313653b9dfb0a", null ],
-      [ "output", "namespace_a_i.html#ac2be61dde8a9752cc17af806ee285714", null ],
-      [ "train_datagen", "namespace_a_i.html#ad2a7de010313c4057418148792a57912", null ],
-      [ "train_dir", "namespace_a_i.html#a88e4fb165b2105d5c1a1a984b6db9285", null ],
-      [ "train_generator", "namespace_a_i.html#a7132b36e9f698e7404a24db3d8378ad9", null ],
-      [ "validation_datagen", "namespace_a_i.html#af2466adaf29bdc6304879c3aa4fbd8cb", null ],
-      [ "validation_dir", "namespace_a_i.html#a06985546d03c3f155de63afb156de7e2", null ],
-      [ "validation_generator", "namespace_a_i.html#a0ab8868c5e5617dc3c88857ed8ada2a3", null ],
-      [ "x", "namespace_a_i.html#ae3850726221c501c5b9669474bde5a73", null ]
-    ] ],
     [ "app", "namespaceapp.html", "namespaceapp" ],
     [ "config", "namespaceconfig.html", "namespaceconfig" ],
     [ "FeatureSelection", "namespace_feature_selection.html", [
       [ "extraTreesClassifier", "namespace_feature_selection.html#ad402baea18a0d615343dfcb352b7d600", null ]
     ] ],
     [ "flask_app", "namespaceflask__app.html", null ],
+    [ "get_cnn_model_predictions", "namespaceget__cnn__model__predictions.html", [
+      [ "predict_image", "namespaceget__cnn__model__predictions.html#a613adc3dad96f067e5f5ec20ad27b190", null ],
+      [ "preprocess_image", "namespaceget__cnn__model__predictions.html#aaa75967265c4b092195f6637ae8f955d", null ],
+      [ "CNN_MODEL_FILE_PATH", "namespaceget__cnn__model__predictions.html#a266bc41a3aea31154055b88563181043", null ],
+      [ "df", "namespaceget__cnn__model__predictions.html#a0bdd93177d33723a1d086cc4cd0ff983", null ],
+      [ "image_name", "namespaceget__cnn__model__predictions.html#a03cf5579a3a46e106da6b1a7564bac9a", null ],
+      [ "image_url", "namespaceget__cnn__model__predictions.html#a598d0a8a275a74ce4c40941c3e46dbff", null ],
+      [ "img", "namespaceget__cnn__model__predictions.html#a99ae7d2ca400172347d36bbbb3ce8ade", null ],
+      [ "img_to_label_dict", "namespaceget__cnn__model__predictions.html#a89f5a48588f770fd5f21f5f26e1f7136", null ],
+      [ "img_to_prediction_prob_dict", "namespaceget__cnn__model__predictions.html#a4bdf5d22c2b25456158e8637b2e91643", null ],
+      [ "model", "namespaceget__cnn__model__predictions.html#adca3a2e9237889f863d1eb0b2b2b5fea", null ],
+      [ "path", "namespaceget__cnn__model__predictions.html#a2ffe41fabc89cd151c7839531fbb4f5b", null ],
+      [ "predicted_label", "namespaceget__cnn__model__predictions.html#abd6f9b18072633c7028a551599111afb", null ],
+      [ "predicted_probability", "namespaceget__cnn__model__predictions.html#a1880b811a380e6bc0bfcf9e351a17872", null ],
+      [ "prediction", "namespaceget__cnn__model__predictions.html#ad3d4c250c6626e4c366528355691fc5a", null ],
+      [ "response", "namespaceget__cnn__model__predictions.html#aab4af2577e53a210840e6eddb62bc065", null ],
+      [ "s3", "namespaceget__cnn__model__predictions.html#a8aeb294ff9d9884807d920e4291ca150", null ],
+      [ "threshold", "namespaceget__cnn__model__predictions.html#ab7df287fbb2a21951c12e92f7f433c10", null ]
+    ] ],
+    [ "inceptionV3_model", "namespaceinception_v3__model.html", [
+      [ "base_model", "namespaceinception_v3__model.html#abaf81a567815f8b0c4b583d02c25b64c", null ],
+      [ "BATCH_SIZE", "namespaceinception_v3__model.html#aaf4c166b57190837b7771fa103e1f72c", null ],
+      [ "early_stopping", "namespaceinception_v3__model.html#a8b64f93ba2fa259fe8f79bc43b2ac8ce", null ],
+      [ "history", "namespaceinception_v3__model.html#a992522d6955c8f758379c757b4b04a28", null ],
+      [ "IMAGE_SIZE", "namespaceinception_v3__model.html#a2018e0c0f3a6ec01eb988bf1ee00e7b5", null ],
+      [ "loss", "namespaceinception_v3__model.html#ab423c8359204e263421d4985d8ba102f", null ],
+      [ "metrics", "namespaceinception_v3__model.html#a004872f16fbb237f9b42b50bf596a857", null ],
+      [ "model", "namespaceinception_v3__model.html#abf1cdd0d777d32f3e2227b20d5984f51", null ],
+      [ "NUM_CLASSES", "namespaceinception_v3__model.html#a48c9bc657ccf9da61808176a00c5cc7c", null ],
+      [ "optimizer", "namespaceinception_v3__model.html#a6cc80e1ba14e2de7bcfe75cbf002206b", null ],
+      [ "output", "namespaceinception_v3__model.html#ad42b666c8310145c6534407ad4413626", null ],
+      [ "train_datagen", "namespaceinception_v3__model.html#ac8e1d6b22969b768336c56a11960f7cc", null ],
+      [ "train_dataset", "namespaceinception_v3__model.html#ad812820c3b7310030ea77969aa86de35", null ],
+      [ "train_dir", "namespaceinception_v3__model.html#a2c1ef51226c8196428733d3769900b71", null ],
+      [ "train_generator", "namespaceinception_v3__model.html#ad49372ffd4dc49daab68f34d3da44f54", null ],
+      [ "validation_datagen", "namespaceinception_v3__model.html#a6bde6425b9810086e52dccb68367cfae", null ],
+      [ "validation_dataset", "namespaceinception_v3__model.html#ab6fa01dbec49210092c2f4bb14dd54fa", null ],
+      [ "validation_dir", "namespaceinception_v3__model.html#a52a74699f64cd27b9d3e9644d230aa76", null ],
+      [ "validation_generator", "namespaceinception_v3__model.html#a7136b93e70f3fe74f7cad752eb800b8c", null ],
+      [ "x", "namespaceinception_v3__model.html#aee382e0dbb5db7d1a70ff13548b621f3", null ]
+    ] ],
     [ "ResizeImages", "namespace_resize_images.html", [
       [ "resize_images", "namespace_resize_images.html#afa8f2eb1362f8c4a0a37d4189914e7c8", null ],
       [ "folder_path", "namespace_resize_images.html#ac57e8f226de6975cb400c214c43359b3", null ],
@@ -72,5 +93,7 @@ var namespaces_dup =
       [ "processed", "namespace_resize_images.html#a22c3dfd5e428794d27889d4ccb16108f", null ],
       [ "processed_list_path", "namespace_resize_images.html#a550d31260bf8e0e7562f973cb01f463f", null ],
       [ "Resampling", "namespace_resize_images.html#a1238645ac48f2fc7c6de17d6d0ccf604", null ]
-    ] ]
+    ] ],
+    [ "selenium_test", "namespaceselenium__test.html", "namespaceselenium__test" ],
+    [ "wsgi", "namespacewsgi.html", null ]
 ];

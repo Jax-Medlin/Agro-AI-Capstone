@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['train_0',['Train',['../classapp_1_1_m_l___class_1_1_active___m_l___model.html#a3e098b0c40237123db1c5d41e33c4f5a',1,'app::ML_Class::Active_ML_Model']]],
-  ['transform_1',['transform',['../classapp_1_1_data_preprocessing_1_1_data_preprocessing.html#a4ce884343e21641e3cd9ed1b536f35ca',1,'app::DataPreprocessing::DataPreprocessing']]]
+  ['set_5floggedin_5fdefault_0',['set_loggedin_default',['../namespaceapp_1_1web.html#ac23978219275719c87695cecec18659a',1,'app::web']]],
+  ['setup_1',['setUp',['../classselenium__test_1_1_agro_a_i_test.html#aefd186d16a0ff8ff1c77aa38eea0bc59',1,'selenium_test::AgroAITest']]]
 ];

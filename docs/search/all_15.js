@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['x_0',['X',['../classapp_1_1_m_l___class_1_1_m_l___model.html#ae0ee5234a97de6a453a95f6889c50677',1,'app::ML_Class::ML_Model']]],
-  ['x_1',['x',['../namespace_a_i.html#ae3850726221c501c5b9669474bde5a73',1,'AI']]]
+  ['web_2epy_0',['web.py',['../web_8py.html',1,'']]],
+  ['wsgi_1',['wsgi',['../namespacewsgi.html',1,'']]],
+  ['wsgi_2epy_2',['wsgi.py',['../wsgi_8py.html',1,'']]]
 ];
